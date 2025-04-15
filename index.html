@@ -8,21 +8,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Side Menu -->
+  <div id="sideMenu" class="side-menu" onmouseleave="closeMenu()">
+    <ul>
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+      <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+      <li><a href="resume.html" onclick="closeMenu()">Resume</a></li>
+    </ul>
+  </div>
+
   <!-- Header -->
-  <header>
+  <header class="right-header">
     <div class="logo">✨ Abdullah Sajid</div>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="menu-icon" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero fade-in">
     <h1>Hi, I'm <span>Abdullah Sajid</span></h1>
     <p>A passionate programmer crafting clean and creative code.</p>
@@ -33,9 +41,8 @@
   <section id="about" class="fade-up">
     <h2>About Me</h2>
     <p>
-      I'm a dedicated computer science student and self-driven developer with experience building
-      Java applications, web interfaces, and creative coding projects. I'm passionate about learning
-      new technologies and solving real-world problems through code.
+      I'm a dedicated Computer Science student with experience in Java, Web Development, and C Programming.
+      I love building real-world solutions and continuously improving my skills.
     </p>
   </section>
 
@@ -48,7 +55,7 @@
       <div class="chip">HTML</div>
       <div class="chip">CSS</div>
       <div class="chip">JavaScript</div>
-      <div class="chip">GitHub</div>
+      <div class="chip">Git & GitHub</div>
       <div class="chip">Problem Solving</div>
     </div>
   </section>
@@ -59,15 +66,15 @@
     <div class="projects">
       <div class="card">
         <h3>Café Management System</h3>
-        <p>CLI-based café management app written in C that handles menus, orders, and stock using file operations.</p>
+        <p>CLI-based café management system in C using file handling and modular code structure.</p>
       </div>
       <div class="card">
         <h3>Restaurant System</h3>
-        <p>Java-based system allowing customers to order and admins to manage menu, employees, and stock.</p>
+        <p>Java-based app for managing menus, orders, and staff with JavaFX UI.</p>
       </div>
       <div class="card">
         <h3>DriffyFit Website</h3>
-        <p>Landing page for a custom apparel brand using HTML, CSS, and minimal animations. Built for showcasing collections.</p>
+        <p>Landing page for custom apparel brand using HTML/CSS with scroll animations.</p>
       </div>
     </div>
   </section>
@@ -75,25 +82,25 @@
   <!-- GitHub -->
   <section id="github" class="fade-up">
     <h2>GitHub</h2>
-    <p>Explore more of my code and contributions on GitHub:</p>
-    <a href="https://github.com/open-source-owl" target="_blank">
-      Click here to fly in my GitHub
-    </a>
+    <p>Explore my repositories and open-source work:</p>
+    <a href="https://github.com/open-source-owl" class="btn" target="_blank">Visit GitHub</a>
   </section>
 
-  <!-- Resume Section -->
-<section id="resume" class="fade-up">
+  <!-- Resume -->
+  <section id="resume" class="fade-up">
     <h2>Resume</h2>
-    <p>Want to learn more about my experience and skills?</p>
-    <a class="btn" href="resume.html">View Resume</a>
-  </section>  
+    <p>Want to know more about my education and experience?</p>
+    <a href="resume.html" class="btn">View Resume</a>
+  </section>
 
   <!-- Contact -->
   <section id="contact" class="fade-up">
     <h2>Contact</h2>
-    <p>Feel free to connect with me at:</p>
-    <p><a href="mailto:a66618945@gmail.com">a66618945@gmail.com</a></p>
-    <p><a href="https://www.linkedin.com/in/abdullah-sajid-53aa80294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a></p>
+    <p>Email me: <a href="mailto:a66618945@gmail.com">a66618945@gmail.com</a></p>
+    <p>
+      Connect on
+      <a href="https://www.linkedin.com/in/abdullah-sajid-53aa80294" target="_blank">LinkedIn</a>
+    </p>
   </section>
 
   <!-- Footer -->
@@ -101,7 +108,6 @@
     <p>© 2025 Abdullah Sajid. All rights reserved.</p>
   </footer>
 
-  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
