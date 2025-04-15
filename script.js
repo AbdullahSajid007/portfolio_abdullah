@@ -1,4 +1,4 @@
-// Animation on scroll
+// Scroll Animation
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -6,7 +6,12 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 });
+document.querySelectorAll('.fade-up, .fade-in').forEach(el => observer.observe(el));
 
-document.querySelectorAll('.fade-in, .slide-in, .fade-up').forEach(el => {
-  observer.observe(el);
-});
+// Side menu toggle
+function toggleMenu() {
+  document.getElementById('sideMenu').classList.toggle('active');
+}
+function closeMenu() {
+  document.getElementById('sideMenu').classList.remove('active');
+}
