@@ -1,279 +1,164 @@
-/* Reset & Base styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  body {
-    background-color: #f4f4f9;
-    color: #333;
-    line-height: 1.6;
-  }
-  
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  /* Header */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  .logo {
-    text-align: right;
-    padding: auto;
-    font-weight: 600;
-    color: #6a5acd;
-    font-size: 1.5rem;
-  }
-  
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-  }
-  
-  nav ul li a:hover {
-    color: #6a5acd;
-  }
-  
-  /* Hero Section */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: linear-gradient(135deg, #e0e7ff, #f0f4ff);
-    padding: 100px 20px 60px;
-  }
-  
-  .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-  }
-  
-  .hero h1 span {
-    color: #6a5acd;
-  }
-  
-  .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-  }
-  
-  .btn {
-    display: inline-block;
-    padding: 10px 25px;
-    background-color: #6a5acd;
-    color: rgb(255, 255, 255);
-    border-radius: 8px;
-    transition: background 0.3s;
-  }
-  .btn_git {
-    display: inline-block;
-    padding: 10px 25px;
-    color: rgb(255, 255, 255);
-    border-radius: 8px;
-    transition: background 0.3s;
-  }
-  
-  .btn:hover {
-    background-color: #5941a9;
-  }
-  
-  /* Sections */
-  section {
-    padding: 60px 40px;
-  }
-  
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #333;
-  }
-  
-  /* Skills Chips */
-  .chip-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-  
-  .chip {
-    background-color: #6a5acd;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 20px;
-    font-weight: 500;
-  }
-  
-  /* Projects */
-  .projects {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  .card {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    padding: 20px;
-    width: 300px;
-    transition: transform 0.3s ease;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .card h3 {
-    margin-bottom: 10px;
-    color: #6a5acd;
-  }
-  
-  /* Contact */
-  #contact {
-    text-align: center;
-  }
-  
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #fff;
-    margin-top: 40px;
-    color: #999;
-  }
-  
-  /* GitHub Section */
-  #github {
-    text-align: center;
-    padding: 40px 20px;
-  }
-  #resume {
-    text-align: center;
-    padding: 40px 20px;
-  }
-  
-  #github a {
-    font-size: 1.1rem;
-    color: #6a5acd;
-  }
-  
-  /* Animations */
-  .fade-in, .slide-in, .fade-up {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease-in-out;
-  }
-  
-  .fade-in.visible, .slide-in.visible, .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  /* Side Menu Styling */
-.side-menu {
-  position: fixed;
-  left: -250px;
-  top: 0;
-  width: 250px;
-  height: 100%;
-  background: #fff;
-  box-shadow: 2px 0 12px rgba(0,0,0,0.1);
-  transition: left 0.3s ease;
-  z-index: 1000;
-  padding-top: 60px;
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: radial-gradient(circle at top left, #0a0a0a, #101820);
+  color: #f0f0f0;
+  scroll-behavior: smooth;
 }
 
-.side-menu ul {
-  list-style: none;
-  padding-left: 20px;
-}
-
-.side-menu ul li {
-  margin: 20px 0;
-}
-
-.side-menu ul li a {
-  text-decoration: none;
-  font-size: 18px;
-  color: #6a5acd;
-  font-weight: 500;
-}
-
-/* Active Class */
-.side-menu.active {
-  left: 0;
-}
-
-/* 3-bar menu icon */
-.menu-icon {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  cursor: pointer;
-  z-index: 1001;
+header {
   display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.menu-icon span {
-  width: 30px;
-  height: 3px;
-  background: #6a5acd;
-  transition: all 0.3s ease;
-}
-
-/* Right-Aligned Header */
-.right-header {
-  display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  position: sticky;
+  padding: 20px 50px;
+  background: rgba(10, 10, 10, 0.6);
+  position: fixed;
+  width: 100%;
   top: 0;
-  z-index: 1000;
-  gap: 1rem;
+  z-index: 10;
 }
 
-/* Logo placed before menu */
-.right-header .logo {
-  font-size: 1.2rem;
+.logo {
   font-weight: 600;
-  color: #6a5acd;
-}
-
-/* Menu icon stays right */
-.menu-icon {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
+  font-size: 1.3rem;
+  color: #fff;
 }
 
 .menu-icon span {
+  display: block;
   width: 25px;
   height: 3px;
-  background-color: #6a5acd;
+  margin: 5px;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.hero {
+  text-align: center;
+  padding: 180px 20px 120px;
+  background: linear-gradient(120deg, #1e1f26, #121212, #101820);
+  background-size: 400% 400%;
+  animation: gradientFlow 12s ease infinite;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  color: #ffffff;
+}
+
+.hero h1 span {
+  color: #4fd1c5;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: 20px auto;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #d3d3d3;
+}
+
+.hero-buttons {
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(90deg, #4fd1c5, #3182ce);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #4fd1c5;
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 2px solid #4fd1c5;
+  color: #4fd1c5;
+}
+
+.btn.secondary:hover {
+  background: #4fd1c5;
+  color: #000;
+}
+
+section {
+  padding: 100px 10%;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #4fd1c5;
+}
+
+.chip-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.chip {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px 20px;
+  border-radius: 25px;
   transition: all 0.3s ease;
+}
+
+.chip:hover {
+  background: #4fd1c5;
+  color: #000;
+  transform: scale(1.1);
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 15px;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 15px #4fd1c5;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.7);
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.contact-link {
+  color: #ffffff;      /* White text */
+  text-decoration: none; /* Remove underline */
+  font-weight: normal;   /* Normal weight */
+  transition: color 0.3s;
+}
+
+.contact-link:hover {
+  color: #4fd1c5;       /* Optional: subtle hover color */
 }
