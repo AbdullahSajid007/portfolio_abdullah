@@ -288,9 +288,14 @@
                 { type: 'success', text: 'Type "help" to see available commands.' },
             ]);
             const bottomRef = useRef(null);
+            const isFirstRender = useRef(true); // Track first render to avoid scroll on load
 
-            // Auto-scroll to bottom
+            // Auto-scroll to bottom ONLY on updates, not initial load
             useEffect(() => {
+                if (isFirstRender.current) {
+                    isFirstRender.current = false;
+                    return;
+                }
                 bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
             }, [history]);
 
@@ -392,7 +397,7 @@
                                 onChange={(e) => setInput(e.target.value)}
                                 onKeyDown={handleCommand}
                                 className="bg-transparent border-none outline-none flex-1 focus:ring-0"
-                                autoFocus
+                                // autoFocus removed to prevent jump on load
                                 placeholder="Type 'help'..."
                             />
                         </div>
