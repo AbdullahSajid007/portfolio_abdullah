@@ -280,7 +280,7 @@
         };
 
         // 3. Interactive Terminal Component
-        const TerminalWindow = ({ profile, skills, projects }) => {
+        const TerminalWindow = ({ profile, skills, projects, onOpenEditor }) => { // Added prop
             const [input, setInput] = useState('');
             const [history, setHistory] = useState([
                 { type: 'system', text: `Last login: ${new Date().toDateString()} on ttys000` },
@@ -288,9 +288,9 @@
                 { type: 'success', text: 'Type "help" to see available commands.' },
             ]);
             const bottomRef = useRef(null);
-            const isFirstRender = useRef(true); // Track first render to avoid scroll on load
+            const isFirstRender = useRef(true);
 
-            // Auto-scroll to bottom ONLY on updates, not initial load
+            // Auto-scroll to bottom ONLY on updates
             useEffect(() => {
                 if (isFirstRender.current) {
                     isFirstRender.current = false;
@@ -316,6 +316,7 @@
                                 { type: 'normal', text: '  projects  - List active projects' },
                                 { type: 'normal', text: '  contact   - Show contact details' },
                                 { type: 'normal', text: '  clear     - Clear terminal' },
+                                { type: 'normal', text: '  edit      - Open config editor (Admin)' }, // Added help
                             ];
                             break;
                         case 'whoami':
@@ -347,6 +348,11 @@
                             setHistory([]);
                             setInput('');
                             return;
+                        case 'edit': // Added case
+                        case 'sudo edit':
+                            response = [{ type: 'success', text: 'Launching configuration panel...' }];
+                            onOpenEditor(); // Call function
+                            break;
                         case '':
                             break;
                         default:
@@ -397,7 +403,6 @@
                                 onChange={(e) => setInput(e.target.value)}
                                 onKeyDown={handleCommand}
                                 className="bg-transparent border-none outline-none flex-1 focus:ring-0"
-                                // autoFocus removed to prevent jump on load
                                 placeholder="Type 'help'..."
                             />
                         </div>
@@ -724,16 +729,7 @@
             return (
                 <div className="min-h-screen bg-slate-900 text-slate-300 font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
                     
-                    {/* Floating Edit Button */}
-                    <div className="fixed bottom-6 right-6 z-50">
-                        <button 
-                            onClick={() => setShowEditor(true)}
-                            className="p-4 bg-cyan-500 hover:bg-cyan-400 text-slate-900 rounded-full shadow-lg shadow-cyan-500/30 transition-all hover:scale-110 flex items-center gap-2 font-bold"
-                        >
-                            <Settings width={24} height={24} />
-                            <span className="hidden md:inline">Edit Content</span>
-                        </button>
-                    </div>
+                    {/* Floating Edit Button REMOVED */}
 
                     {/* Navigation */}
                     <nav className={`fixed w-full z-40 transition-all duration-300 ${scrolled ? 'bg-slate-900/90 backdrop-blur-md shadow-lg py-4' : 'bg-transparent py-6'}`}>
@@ -855,7 +851,8 @@
                                     <h2 className="text-3xl font-bold text-white mb-4">Developer <span className="text-cyan-400">Console</span></h2>
                                     <p className="text-slate-400">Interact with my portfolio directly from the command line.</p>
                                 </div>
-                                <TerminalWindow profile={profile} skills={skills} projects={projects} />
+                                {/* Added onOpenEditor prop */}
+                                <TerminalWindow profile={profile} skills={skills} projects={projects} onOpenEditor={() => setShowEditor(true)} />
                             </div>
                         </section>
 
